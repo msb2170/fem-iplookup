@@ -5,40 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
   
   <title>Frontend Mentor | IP Address Tracker</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
 <body>
-  <div class="title">
-  IP Address Tracker
+  <div class="container">
+    <div class="title">
+    <h3>IP Address Tracker</h3>
+    </div> 
 
-  Search for any IP address or domain
-  </div>
+    <div class="search-bar">
+      <input type="search" placeholder="Search for any IP address or domain"><button type="submit"><img src="./assets/icon-arrow.svg" alt="submit"></button>
+    </div>
 
-  <div class="search-bar">
-    <input type="search" placeholder="search an IP address here">
-  </div>
+    <div class="results-card">
+    Location <p class="location-data"></p>
+    <hr> 
+    Timezone <p class="timezone-data"></p>
+    <hr> 
+      UTC <!-- add offset value dynamically using the API --> <p class="utc-data"></p> 
+    <hr>
+    ISP <p class="isp-data"></p>
+    </div>
 
-  <div class="results-card">
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  </div>
-
-  <div class="map">
-    <p>map goes here</p>
-  </div>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Matthew Byrd</a>.
+    <div class="map" id="map">
+    </div>
+    
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Matthew Byrd</a>.
+    </div>
   </div>
 </body>
+<script>
+  const map = L.map('map').setView([51.505, -0.09], 13);
+  var myIcon = L.icon({iconUrl: './assets/icon-location.svg'})
+  var marker = L.marker([51.5, -0.09], {icon:myIcon}).addTo(map);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+</script>
+</script>
 </html>

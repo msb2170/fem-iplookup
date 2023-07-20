@@ -1,4 +1,97 @@
+:root {
+    --very-dark-gray: hsl(0, 0%, 17%)
+    --dark-gray: hsl(0, 0%, 59%)
+}
 
+html,body {
+    background-image: url(./assets/pattern-bg-desktop.png);
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    overflow: hidden;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: white;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 30vw;
+    height: 5vh;
+    margin-bottom: 5vh;
+    border-radius: 50px;
+}
+
+.search-bar > input {
+    flex: 1;
+    border: none;
+    outline: none;
+    width: 50%;
+    height: 100%;
+    border-radius: 25px 0 0 25px;
+}
+
+.search-bar > button {
+    width: 20%;
+    height: 100%;
+    background-color: black;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+}
+
+.search-bar > button:hover  {
+    background-color: rgb(40, 39, 39);
+}
+
+.results-card {
+    display: flex;
+    flex: 0;
+    justify-content: space-around;
+    width: 80%;
+    height: 10vh;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    top: -1vh;
+}
+
+.icon {
+    background-image: url(./assets/icon-location.svg);
+    height: 500px;
+    width: 500px;
+}
+
+.map {
+    position: fixed;
+    top: 25vh;
+    right: 0;
+    bottom: 5vh;
+    left: 0;
+    border: 1px solid red;
+    z-index: 1;
+}
+
+.attribution {
+    position: fixed;
+    bottom: 1vh;
+}
 
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+@media screen and (max-width: 900px) {
+    
+}
